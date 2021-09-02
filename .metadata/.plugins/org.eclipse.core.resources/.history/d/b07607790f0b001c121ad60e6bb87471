@@ -1,0 +1,33 @@
+package com.anitesh.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anitesh.bean.OrderTable;
+import com.anitesh.persistance.OrderDao;
+import com.anitesh.persistance.OrderItemDao;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	OrderDao orderDao;
+
+	@Autowired
+	OrderItemDao orderItemDao;
+
+	@Override
+	public OrderTable getOrderById(long id) {
+
+		return orderDao.getById(id);
+	}
+
+	@Override
+	public boolean addOrders(OrderTable orderTable) {
+		orderTable.getItems().forEach(e -> orderItemDao.save(e));
+		orderDao.save(orderTable);
+
+		return true;
+	}	
+
+}

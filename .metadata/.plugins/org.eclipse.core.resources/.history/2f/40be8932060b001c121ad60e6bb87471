@@ -1,0 +1,7 @@
+package com.anitesh.service;
+
+
+public interface OrderService {
+	public OrderTable getOrderById(long id);
+	
+}

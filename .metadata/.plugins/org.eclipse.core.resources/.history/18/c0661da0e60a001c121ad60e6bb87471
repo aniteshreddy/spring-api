@@ -1,0 +1,5 @@
+package com.anitesh.bean;
+
+public class InventoryItem {
+
+}

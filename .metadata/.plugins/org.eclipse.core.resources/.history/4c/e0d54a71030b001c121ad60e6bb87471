@@ -1,0 +1,25 @@
+package com.anitesh.bean;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderItem {
+	
+	@Id
+	private long id;
+	private long productId;
+	private int quantity;
+	private BigDecimal productPrice;
+}

@@ -1,0 +1,9 @@
+package com.anitesh.persistance;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.anitesh.bean.InventoryItem;
+
+public interface InventoryItemDoa extends JpaRepository<InventoryItem, Integer>{
+	
+}

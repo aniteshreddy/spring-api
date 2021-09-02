@@ -1,0 +1,8 @@
+package com.anitesh.service;
+
+import com.anitesh.bean.Order;
+
+public interface OrderService {
+	public Order getOrderById(long id);
+	
+}

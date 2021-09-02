@@ -1,0 +1,43 @@
+package com.anitesh.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.HttpMessageNotWritableException;
+import org.springframework.stereotype.Service;
+
+import com.anitesh.bean.OrderTable;
+import com.anitesh.persistance.OrderDao;
+import com.anitesh.persistance.OrderItemDao;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	OrderDao orderDao;
+
+	@Autowired
+	OrderItemDao orderItemDao;
+
+	@Override
+	public OrderTable getOrderById(long id) {
+
+		try {
+			return orderDao.getById(id);
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+
+	@Override
+	public boolean addOrders(OrderTable orderTable) {
+
+		try {
+			orderTable.getItems().forEach(e -> orderItemDao.save(e));
+			orderDao.save(orderTable);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
+}

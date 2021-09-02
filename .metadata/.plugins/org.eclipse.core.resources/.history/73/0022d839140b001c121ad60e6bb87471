@@ -1,0 +1,12 @@
+package com.anitesh.persistance;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.anitesh.bean.OrderTable;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+@Repository
+public interface OrderDao extends JpaRepository<OrderTable, Long> {
+	public OrderTable getById(int id) throws JsonMappingException;
+}
