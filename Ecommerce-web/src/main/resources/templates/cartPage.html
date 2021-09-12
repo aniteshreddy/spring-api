@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border=1>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Qunatity</td>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="product : ${cartProducts}">
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.quantity}"></td>
+
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<a href="./fillAdress">Place order</a>
+	<br>
+	<br>
+</body>
+</html>

@@ -1,2 +1,3 @@
 browsers=<?xml version\="1.0" encoding\="UTF-8"?>\n<web-browsers current\="0">\n<system/>\n<external location\="/usr/bin/firefox" name\="Firefox"/>\n<external location\="/usr/bin/google-chrome" name\="Chrome"/>\n</web-browsers>
 eclipse.preferences.version=1
+internalWebBrowserHistory=file\:/data/eclipse-case-study/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1631455470365/index.html|*|file\:/home/aniteshreddy/eclipse/jee-2021-062/eclipse/../../../.p2/pool/plugins/org.springsource.ide.eclipse.commons.gettingstarted_3.9.17.202106210631-RELEASE/resources/welcome/index.html|*|file\:/data/eclipse-case-study/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1631342439236/index.html|*|

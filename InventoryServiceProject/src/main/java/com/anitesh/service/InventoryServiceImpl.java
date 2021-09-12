@@ -1,6 +1,7 @@
 package com.anitesh.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,19 @@ public class InventoryServiceImpl implements InventoryService {
 	public List<InventoryItem> getInventory() {
 
 		return inventoryItemDoa.findAll();
+	}
+	
+	@Override
+	public Optional<InventoryItem> findInventoryById(long code) {
+
+		return inventoryItemDoa.findById(code);
+
+	}
+
+	@Override
+	public int updateInventoryByCodeService(int quantity, String code) {
+		
+		return inventoryItemDoa.updateInventoryByCode(quantity, code);
 	}
 
 }

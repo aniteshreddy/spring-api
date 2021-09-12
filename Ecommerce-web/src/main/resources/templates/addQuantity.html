@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add quantity</title>
+</head>
+<body>
+	<form action="#" th:action="@{./addToCart}" th:method="POST">
+	<h3 th:text="'Available Quantity is ' + ${inventoryItem.availableQuantity}"></h3>
+		Enter Quantity : <input type="text" th:name="quantity">
+		 <input
+			type="submit" value="Proceed" /> <input th:type="hidden"
+			th:name="productId" th:value="${inventoryItem.id}" />
+	</form>
+</body>
+</html>

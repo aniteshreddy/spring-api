@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,29 @@ public class InventoryItemController {
 	public ResponseEntity<InventoryItem> getInventoryByCode(@PathVariable("code") String code) {
 		InventoryItem inventoryItem = inventoryService.findInventoryByCode(code);
 		if (inventoryItem != null) {
-			return ResponseEntity.status(HttpStatus.OK).body(inventoryService.findInventoryByCode(code));
+			return ResponseEntity.status(HttpStatus.OK).body(inventoryItem);
+
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+	}
+
+	@GetMapping(path = "/id/{id}", produces = "Application/json")
+	public ResponseEntity<InventoryItem> getInventoryByCode(@PathVariable("id") long id) {
+		InventoryItem inventoryItem = inventoryService.findInventoryById(id).orElse(null);
+		if (inventoryItem != null) {
+			return ResponseEntity.status(HttpStatus.OK).body(inventoryItem);
+
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+	}
+
+	@PutMapping(path = "/code/{code}/{availableQuantity}")
+	public ResponseEntity<Object> updateInventoryItemQuantityByProductCode(@PathVariable("code") String code,
+			@PathVariable("availableQuantity") int quantity) {
+		if (inventoryService.updateInventoryByCodeService(quantity, code) > 0) {
+			return ResponseEntity.status(HttpStatus.OK).body(null);
 
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
