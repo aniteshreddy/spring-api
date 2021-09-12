@@ -21,7 +21,7 @@ public class InventoryServiceImpl implements InventoryService {
 		try {
 			return restTemplate.getForObject("http://localhost:9090/inventories/id/" + id, InventoryItem.class);
 		} catch (HttpClientErrorException e) {
-			e.printStackTrace();
+			
 			return null;
 		}
 	}

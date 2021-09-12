@@ -33,6 +33,9 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	InventoryService inventoryService;
 
+	@Autowired
+	ChangeInventory changeInventory;
+
 	@Override
 	public OrderTable getOrderById(long id) {
 
@@ -49,9 +52,6 @@ public class OrderServiceImpl implements OrderService {
 
 			for (OrderItem item : orderTable.getItems()) {
 				Product product = productService.getPriceById(item.getProductId());
-				
-				System.out.println("==================================================================");
-				System.out.println(product.getPrice());
 
 				if (product != null) {
 					item.setProductPrice(new BigDecimal(product.getPrice()));
@@ -60,8 +60,13 @@ public class OrderServiceImpl implements OrderService {
 					InventoryItem inventoryItem = inventoryService.getQuantityById(product.getId());
 					System.out.println("here");
 					if (inventoryItem != null)
-						if (inventoryItem.getAvailableQuantity() - item.getQuantity() >= 0)
-							newItems.add(item);
+						if (inventoryItem.getAvailableQuantity() - item.getQuantity() >= 0) {
+
+							if (changeInventory.changeInventoryService(product.getId(),
+									inventoryItem.getAvailableQuantity() - item.getQuantity()))
+
+								newItems.add(item);
+						}
 				}
 			}
 			orderTable.getItems().clear();

@@ -37,9 +37,9 @@ public class InventoryServiceImpl implements InventoryService {
 	}
 
 	@Override
-	public int updateInventoryByCodeService(int quantity, String code) {
+	public int updateInventoryByIdService(int quantity, int code) {
 		
-		return inventoryItemDoa.updateInventoryByCode(quantity, code);
+		return inventoryItemDoa.updateInventoryById(quantity, code);
 	}
 
 }

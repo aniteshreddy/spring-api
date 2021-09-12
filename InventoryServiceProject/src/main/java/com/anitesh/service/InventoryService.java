@@ -9,5 +9,5 @@ public interface InventoryService {
 	public InventoryItem findInventoryByCode(String code);
 	public List<InventoryItem> getInventory();
 	public Optional<InventoryItem> findInventoryById(long code);
-	public int updateInventoryByCodeService(int quantity,String code);
+	public int updateInventoryByIdService(int quantity,int code);
 }

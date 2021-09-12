@@ -29,9 +29,6 @@ public class ProductServiceImpl implements ProductService {
 		}
 
 		catch (HttpClientErrorException e) {
-			
-			
-			e.printStackTrace();
 
 			return null;
 

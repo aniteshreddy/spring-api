@@ -14,8 +14,11 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public boolean placeOrderService(OrderTable orderTable) {
+		
+		System.out.println("====================================");
+		System.out.println(orderTable);
 
-		if (restTemplate.postForEntity("http://localhost:9090/orders", orderTable, OrderTable.class)
+		if (restTemplate.postForEntity("http://localhost:8079/orders", orderTable, OrderTable.class)
 				.getStatusCodeValue() == 201)
 
 			return true;

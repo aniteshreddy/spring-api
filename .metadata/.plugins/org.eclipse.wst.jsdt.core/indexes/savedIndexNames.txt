@@ -3,7 +3,6 @@ INDEX VERSION 1.4+/data/eclipse-case-study/.metadata/.plugins/org.eclipse.wst.js
 2468593286.index
 2145465320.index
 3938385742.index
-324686195.index
 2074271440.index
 324686195.index
 3077413513.index
