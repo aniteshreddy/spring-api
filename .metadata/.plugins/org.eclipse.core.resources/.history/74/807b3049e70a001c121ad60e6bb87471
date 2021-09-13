@@ -1,5 +1,0 @@
-import org.springframework.jdbc.core.RowMapper;
-
-public class InventoryRowMapper implements RowMapper<T> {
-
-}

@@ -49,7 +49,7 @@ public class InventoryItemController {
 	}
 
 	@PutMapping(path = "/id/{id}/{availableQuantity}")
-	public ResponseEntity<Object> updateInventoryItemQuantityByProductId(@PathVariable("code") int code,
+	public ResponseEntity<Object> updateInventoryItemQuantityByProductId(@PathVariable("id") int code,
 			@PathVariable("availableQuantity") int quantity) {
 		if (inventoryService.updateInventoryByIdService(quantity, code) > 0) {
 			return ResponseEntity.status(HttpStatus.OK).body(null);

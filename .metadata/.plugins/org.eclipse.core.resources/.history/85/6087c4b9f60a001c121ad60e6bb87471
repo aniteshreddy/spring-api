@@ -1,9 +1,0 @@
-package com.anitesh.persistance;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.anitesh.bean.OrderItem;
-
-public interface OrderItemDao extends JpaRepository<OrderItem, Long> {
-
-}

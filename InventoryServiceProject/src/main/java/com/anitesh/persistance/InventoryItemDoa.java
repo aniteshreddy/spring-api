@@ -24,6 +24,6 @@ public interface InventoryItemDoa extends JpaRepository<InventoryItem,Long>{
 	@Transactional
 	@Modifying
 	@Query("update InventoryItem set availableQuantity=:aq where id=:code")
-	public int  updateInventoryById(@Param("aq")int quantity,@Param("code")int code);
+	public int  updateInventoryById(@Param("aq")int quantity,@Param("code")long code);
 
 }

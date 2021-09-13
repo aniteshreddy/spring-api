@@ -1,8 +1,0 @@
-package com.anitesh.service;
-
-import com.anitesh.bean.InventoryItem;
-
-public interface InventoryService {
-	public InventoryItem findInventoryByCode(String code);
-	public List<InventoryItem> getInventory();
-}

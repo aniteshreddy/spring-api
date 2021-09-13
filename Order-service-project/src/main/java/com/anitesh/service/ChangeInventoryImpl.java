@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.anitesh.bean.Product;
+
 @Service
 public class ChangeInventoryImpl implements ChangeInventory {
 
@@ -15,9 +17,9 @@ public class ChangeInventoryImpl implements ChangeInventory {
 
 	@Override
 	public boolean changeInventoryService(long id, int quantity) {
-		HttpEntity<Object> request = new HttpEntity<>(new Object());
-		ResponseEntity<Object> response = restTemplate.exchange(
-				"http://localhost:9090/inventories/id/" + id + "/" + quantity, HttpMethod.PUT, request, Object.class);
+		HttpEntity<Object> request = new HttpEntity<>(new Product());
+		ResponseEntity<Product> response = restTemplate.exchange(
+				"http://localhost:9090/inventories/id/" + id + "/" + quantity, HttpMethod.PUT, request, Product.class);
 		if (response.getStatusCodeValue() == 200)
 			return true;
 		return false;
